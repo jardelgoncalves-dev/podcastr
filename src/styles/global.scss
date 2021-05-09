@@ -20,3 +20,39 @@
   --purple-500: #8257e5;
   --purple-800: #6f48c9;
 }
+
+@media (max-width: 1080px) {
+  html {
+    font-size: 93.75%;
+  }
+}
+
+@media (max-width: 720px) {
+  html {
+    font-size: 97.5%;
+  }
+}
+
+body {
+  background-color: var(--gray-50);
+}
+
+body,
+input,
+textarea,
+button {
+  font: 500 1rem sans-serif;
+  color: var(--gray-500);
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+button {
+  cursor: pointer;
+}
