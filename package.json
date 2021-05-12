@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "api": "npx json-server server-api/db.json -w -d 750 -p 3333",
     "dev": "next dev",
     "build": "next build",
     "start": "next start"
