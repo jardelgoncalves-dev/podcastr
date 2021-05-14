@@ -12,6 +12,7 @@ interface Episode {
   thumbnail: string;
   publisedAt: string;
   duration: number;
+  durationAsString: string;
   url: string;
 }
 
