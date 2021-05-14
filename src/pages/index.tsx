@@ -1,7 +1,17 @@
 import { GetStaticProps } from 'next'
 import { Header } from "../components/Header";
 
-export default function Home(props) {
+interface Episode {
+  id: string
+  title: string
+  members: string;
+}
+
+interface HomeProps {
+  episodes: Episode[]
+}
+
+export default function Home(props: HomeProps) {
   console.log(props.episodes)
   return <h1>Index</h1>;
 }
