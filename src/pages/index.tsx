@@ -1,11 +1,17 @@
 import { GetStaticProps } from 'next'
-import { Header } from "../components/Header";
+import { format, parseISO } from 'date-fns';
+import ptBR from 'date-fns/locale/pt-BR';
 import api from '../services/api';
 
 interface Episode {
   id: string
   title: string
+  description: string;
   members: string;
+  thumbnail: string;
+  publisedAt: string;
+  duration: number;
+  url: string;
 }
 
 interface HomeProps {
@@ -18,13 +24,25 @@ export default function Home(props: HomeProps) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const { data: episodes } = await api.get('/episodes', {
+  const { data } = await api.get('/episodes', {
     params: {
       _limit: 12,
       _sort: 'published_at',
       _order: 'desc'
     }
   })
+
+  const episodes = data.map(episode => ({
+    id: episode.id,
+    title: episode.title,
+    description: episode.description,
+    thumbnail: episode.thumbnail,
+    members: episode.members,
+    publisedAt: format(parseISO(episode.published_at), 'd MMM yy', { locale: ptBR }),
+    duration: Number(episode.file.duration),
+    url: episode.file.url
+  }))
+
   return {
     props: {
       episodes
