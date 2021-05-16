@@ -4,20 +4,12 @@ import ptBR from 'date-fns/locale/pt-BR';
 
 import api from '../services/api';
 import { convertDurationToTimeString } from '../utils/convert-duration-to-time-string';
+import { Episode } from '../models/Episode';
 
 import styles from './homepage.module.scss';
+import { ListEpisodeCard } from '../components/ListEpisodeCard';
 
-interface Episode {
-  id: string
-  title: string
-  description: string;
-  members: string;
-  thumbnail: string;
-  publisedAt: string;
-  duration: number;
-  durationAsString: string;
-  url: string;
-}
+
 
 interface HomeProps {
   latestEpisodes: Episode[]
@@ -29,13 +21,7 @@ export default function Home({ latestEpisodes }: HomeProps) {
     <div className={styles.homepage}>
       <section className={styles.latestEpisodes}>
         <h2>Últimos lançamentos</h2>
-        <ul>
-          {latestEpisodes.map(episode => (
-            <li key={episode.id}>
-              <a href="">{episode.title}</a>
-            </li>
-          ))}
-        </ul>
+        <ListEpisodeCard episodes={latestEpisodes} />
       </section>
       <section className={styles.allEpisodes}>
 
