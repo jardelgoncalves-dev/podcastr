@@ -1,8 +1,11 @@
 import { GetStaticProps } from 'next'
 import { format, parseISO } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
+
 import api from '../services/api';
 import { convertDurationToTimeString } from '../utils/convert-duration-to-time-string';
+
+import styles from './homepage.module.scss';
 
 interface Episode {
   id: string
@@ -21,9 +24,24 @@ interface HomeProps {
   allEpisodes: Episode[]
 }
 
-export default function Home(props: HomeProps) {
-  console.log(props.latestEpisodes)
-  return <h1>Index</h1>;
+export default function Home({ latestEpisodes }: HomeProps) {
+  return (
+    <div className={styles.homepage}>
+      <section className={styles.latestEpisodes}>
+        <h2>Últimos lançamentos</h2>
+        <ul>
+          {latestEpisodes.map(episode => (
+            <li key={episode.id}>
+              <a href="">{episode.title}</a>
+            </li>
+          ))}
+        </ul>
+      </section>
+      <section className={styles.allEpisodes}>
+
+      </section>
+    </div>
+  )
 }
 
 export const getStaticProps: GetStaticProps = async () => {
