@@ -17,11 +17,12 @@ interface Episode {
 }
 
 interface HomeProps {
-  episodes: Episode[]
+  latestEpisodes: Episode[]
+  allEpisodes: Episode[]
 }
 
 export default function Home(props: HomeProps) {
-  console.log(props.episodes)
+  console.log(props.latestEpisodes)
   return <h1>Index</h1>;
 }
 
@@ -46,9 +47,13 @@ export const getStaticProps: GetStaticProps = async () => {
     url: episode.file.url
   }))
 
+  const latestEpisodes = episodes.slice(0, 2)
+  const allEpisodes = episodes.slice(2, episodes.length)
+
   return {
     props: {
-      episodes
+      latestEpisodes,
+      allEpisodes
     },
     revalidate: 60 * 60 * 8
   }
