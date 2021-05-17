@@ -8,6 +8,7 @@ import { Episode } from '../models/Episode';
 
 import styles from './homepage.module.scss';
 import { ListEpisodeCard } from '../components/ListEpisodeCard';
+import { EpisodesDataGrid } from '../components/EpisodesDataGrid';
 
 
 
@@ -16,7 +17,7 @@ interface HomeProps {
   allEpisodes: Episode[]
 }
 
-export default function Home({ latestEpisodes }: HomeProps) {
+export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
   return (
     <div className={styles.homepage}>
       <section className={styles.latestEpisodes}>
@@ -24,7 +25,8 @@ export default function Home({ latestEpisodes }: HomeProps) {
         <ListEpisodeCard episodes={latestEpisodes} />
       </section>
       <section className={styles.allEpisodes}>
-
+        <h2>Todos episódios</h2>
+        <EpisodesDataGrid episodes={allEpisodes} />
       </section>
     </div>
   )
