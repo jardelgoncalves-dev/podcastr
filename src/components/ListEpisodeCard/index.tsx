@@ -11,7 +11,7 @@ export function ListEpisodeCard({ episodes }: ListEpisodeCardProps) {
   return (
     <ul className={styles.list}>
       {episodes.map(episode => (
-        <li className={styles.card}>
+        <li className={styles.card} key={episode.id}>
           <Image
             width={192}
             height={192}
