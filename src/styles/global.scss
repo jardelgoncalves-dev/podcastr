@@ -67,3 +67,10 @@ h6 {
 button {
   cursor: pointer;
 }
+
+::-webkit-scrollbar-thumb {
+  background-color: #04D361;
+}
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
