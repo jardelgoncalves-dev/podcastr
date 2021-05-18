@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { Episode } from "../../models/Episode";
 
 import styles from './styles.module.scss';
@@ -20,7 +21,11 @@ export function ListEpisodeCard({ episodes }: ListEpisodeCardProps) {
           />
 
           <div className={styles.details}>
-            <a href="">{episode.title}</a>
+              <Link href={`/episodes/${episode.id}`}>
+                <a>
+                  {episode.title}
+                </a>
+              </Link>
             <p>{episode.members}</p>
             <span>{episode.publisedAt}</span>
             <span>{episode.durationAsString}</span>
