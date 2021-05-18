@@ -12,12 +12,14 @@ export function EpisodesDataGrid({ episodes }: EpisodesDataGridProps) {
   return (
     <table className={styles.datagrid}>
       <thead>
-        <th />
-        <th>Podcast</th>
-        <th>Integrantes</th>
-        <th>Data</th>
-        <th>Duração</th>
-        <th />
+        <tr>
+          <th />
+          <th>Podcast</th>
+          <th>Integrantes</th>
+          <th>Data</th>
+          <th>Duração</th>
+          <th />
+        </tr>
       </thead>
       <tbody>
         {episodes.map(episode => (
