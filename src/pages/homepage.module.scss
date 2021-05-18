@@ -2,13 +2,7 @@
   padding: 0 4rem;
   height: calc(100vh - 6.5rem);
   overflow-y: scroll;
-
-  &::-webkit-scrollbar-thumb {
-    background-color: #04D361;
-  }
-  &::-webkit-scrollbar {
-    width: 0.5rem;
-  }
+  
   h2 {
     margin-top: 2rem;
     margin-bottom: 1.5rem;
