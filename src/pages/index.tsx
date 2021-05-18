@@ -9,6 +9,7 @@ import { Episode } from '../models/Episode';
 import styles from './homepage.module.scss';
 import { ListEpisodeCard } from '../components/ListEpisodeCard';
 import { EpisodesDataGrid } from '../components/EpisodesDataGrid';
+import { DataTransformation } from '../utils/data-transformation';
 
 
 
@@ -41,17 +42,12 @@ export const getStaticProps: GetStaticProps = async () => {
     }
   })
 
-  const episodes = data.map(episode => ({
-    id: episode.id,
-    title: episode.title,
-    description: episode.description,
-    thumbnail: episode.thumbnail,
-    members: episode.members,
-    publisedAt: format(parseISO(episode.published_at), 'd MMM yy', { locale: ptBR }),
-    duration: Number(episode.file.duration),
-    durationAsString: convertDurationToTimeString(Number(episode.file.duration)),
-    url: episode.file.url
-  }))
+  const episodes = data.map(episode =>
+    DataTransformation.transform<Episode>({
+      data: episode,
+      fnName: 'episodes'
+    })
+  )
 
   const latestEpisodes = episodes.slice(0, 2)
   const allEpisodes = episodes.slice(2, episodes.length)
