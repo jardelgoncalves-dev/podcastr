@@ -13,6 +13,7 @@ interface EpisodesProps {
 }
 
 export default function Episodes({ episode }: EpisodesProps) {
+
   return (
     <div className={styles.episodePage}>
       <section className={styles.episode}>
@@ -51,8 +52,16 @@ export default function Episodes({ episode }: EpisodesProps) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
+  const { data } = await api.get(`/most-accessed/episodes`);
+
+  const paths = data.ids.map(id => ({
+    params: {
+      slug: id
+    }
+  }))
+
   return {
-    paths: [],
+    paths,
     fallback: 'blocking'
   }
 }
