@@ -8,6 +8,8 @@ import { EpisodesDataGrid } from '../components/EpisodesDataGrid';
 import { DataTransformation } from '../utils/data-transformation';
 
 import styles from './homepage.module.scss';
+import { useContext } from 'react';
+import { PlayerContext } from '../contexts/PlayerContext';
 
 
 interface HomeProps {
@@ -16,17 +18,19 @@ interface HomeProps {
 }
 
 export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
+  const { play } = useContext(PlayerContext)
+
   return (
-    <div className={styles.homepage}>
-      <section className={styles.latestEpisodes}>
-        <h2>Últimos lançamentos</h2>
-        <ListEpisodeCard episodes={latestEpisodes} />
-      </section>
-      <section className={styles.allEpisodes}>
-        <h2>Todos episódios</h2>
-        <EpisodesDataGrid episodes={allEpisodes} />
-      </section>
-    </div>
+      <div className={styles.homepage}>
+        <section className={styles.latestEpisodes}>
+          <h2>Últimos lançamentos</h2>
+          <ListEpisodeCard episodes={latestEpisodes} play={play} />
+        </section>
+        <section className={styles.allEpisodes}>
+          <h2>Todos episódios</h2>
+          <EpisodesDataGrid episodes={allEpisodes} />
+        </section>
+      </div>
   )
 }
 
