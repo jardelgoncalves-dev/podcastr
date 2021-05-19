@@ -6,9 +6,10 @@ import styles from './styles.module.scss';
 
 interface ListEpisodeCardProps {
   episodes: Episode[]
+  play: (episode: Episode) => void
 }
 
-export function ListEpisodeCard({ episodes }: ListEpisodeCardProps) {
+export function ListEpisodeCard({ episodes, play }: ListEpisodeCardProps) {
   return (
     <ul className={styles.list}>
       {episodes.map(episode => (
@@ -30,7 +31,7 @@ export function ListEpisodeCard({ episodes }: ListEpisodeCardProps) {
             <span>{episode.publisedAt}</span>
             <span>{episode.durationAsString}</span>
           </div>
-          <button className={styles.playBtn}>
+          <button className={styles.playBtn} onClick={() => play(episode)}>
             <img src="/play-green.svg" alt="Tocar episódio" />
           </button>
         </li>
