@@ -44,6 +44,32 @@
   justify-content: center;
 }
 
+.playing {
+  text-align: center;
+
+  img {
+    border-radius: 1.5rem;
+  }
+
+  strong, p {
+    display: block;
+  }
+
+  strong {
+    margin-top: 1rem;
+    font: 600 1.25rem Lexend, sans-serif;
+    color: var(--white);
+    line-height: 1.75rem;
+  }
+
+  p {
+    margin-top: 1rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    opacity: 0.6;
+  }
+}
+
 .progress {
   display: flex;
   align-items: center;
