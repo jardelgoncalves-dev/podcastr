@@ -1,16 +1,13 @@
 import { GetStaticProps } from 'next'
-import { format, parseISO } from 'date-fns';
-import ptBR from 'date-fns/locale/pt-BR';
 
 import api from '../services/api';
-import { convertDurationToTimeString } from '../utils/convert-duration-to-time-string';
 import { Episode } from '../models/Episode';
 
-import styles from './homepage.module.scss';
 import { ListEpisodeCard } from '../components/ListEpisodeCard';
 import { EpisodesDataGrid } from '../components/EpisodesDataGrid';
 import { DataTransformation } from '../utils/data-transformation';
 
+import styles from './homepage.module.scss';
 
 
 interface HomeProps {
