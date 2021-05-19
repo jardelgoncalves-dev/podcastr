@@ -7,9 +7,10 @@ import styles from './styles.module.scss';
 
 interface EpisodesDataGridProps {
   episodes: Episode[]
+  play: (episode: Episode) => void
 }
 
-export function EpisodesDataGrid({ episodes }: EpisodesDataGridProps) {
+export function EpisodesDataGrid({ episodes, play }: EpisodesDataGridProps) {
   return (
     <table className={styles.datagrid}>
       <thead>
@@ -45,7 +46,7 @@ export function EpisodesDataGrid({ episodes }: EpisodesDataGridProps) {
             <td style={{ width: 100 }}>{episode.publisedAt}</td>
             <td>{episode.durationAsString}</td>
             <td>
-              <button type="button">
+              <button type="button" onClick={() => play(episode)}>
                 <img src="/play-green.svg" alt="Tocar episódio" />
               </button>
             </td>

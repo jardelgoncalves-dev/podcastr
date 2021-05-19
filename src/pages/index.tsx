@@ -28,7 +28,7 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
         </section>
         <section className={styles.allEpisodes}>
           <h2>Todos episódios</h2>
-          <EpisodesDataGrid episodes={allEpisodes} />
+          <EpisodesDataGrid episodes={allEpisodes} play={play} />
         </section>
       </div>
   )
