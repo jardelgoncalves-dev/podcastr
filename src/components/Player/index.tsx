@@ -1,7 +1,11 @@
 import Image from 'next/image';
 import { useContext } from 'react';
+import Slider from 'rc-slider';
+
 import { PlayerContext } from '../../contexts/PlayerContext';
+
 import styles from './styles.module.scss';
+import 'rc-slider/assets/index.css';
 
 export function Player() {
   const { episodeList, currentEpisodeIndex } = useContext(PlayerContext)
@@ -37,9 +41,16 @@ export function Player() {
       <footer className={!episode ? styles.empty: ''}>
         <div className={styles.progress}>
           <span>00:00</span>
-          <div className={styles.slider}>
-            <div className={styles.emptySlider}></div>
-          </div>
+          {
+            episode
+              ? (
+                <Slider />
+              ): (
+                <div className={styles.slider}>
+                  <div className={styles.emptySlider}></div>
+                </div>
+              )
+          }
           <span>00:00</span>
         </div>
         <div className={styles.controls}>
