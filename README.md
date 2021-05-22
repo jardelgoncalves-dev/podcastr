@@ -34,3 +34,11 @@ Run the project by executing the command:
 ```
 npm run dev
 ```
+
+## Generate build
+
+Running the command:
+
+```
+npm run build
+```
