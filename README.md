@@ -23,6 +23,12 @@ First install the dependencies:
 npm i
 ```
 
+Now run the API before the frontend by running the command
+
+```
+npm run api
+```
+
 Run the project by executing the command:
 
 ```
