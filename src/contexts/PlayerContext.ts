@@ -11,6 +11,8 @@ interface Episode {
 interface PlayerContextData {
   episodeList: Episode[]
   currentEpisodeIndex: number
+  isPlaying: boolean
+  togglePlay: () => void
   play: (episode: Episode) => void
 }
 
