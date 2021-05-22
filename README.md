@@ -14,3 +14,17 @@
 
 - React.js
 - Next.js
+
+## Run project
+
+First install the dependencies:
+
+```
+npm i
+```
+
+Run the project by executing the command:
+
+```
+npm run dev
+```
