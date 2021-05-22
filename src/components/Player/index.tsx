@@ -4,8 +4,8 @@ import Slider from 'rc-slider';
 
 import { PlayerContext } from '../../contexts/PlayerContext';
 
-import styles from './styles.module.scss';
 import 'rc-slider/assets/index.css';
+import styles from './styles.module.scss';
 
 export function Player() {
   const { episodeList, currentEpisodeIndex } = useContext(PlayerContext)
@@ -44,7 +44,11 @@ export function Player() {
           {
             episode
               ? (
-                <Slider />
+                <Slider
+                  trackStyle={{ backgroundColor: '#04D361' }}
+                  railStyle={{ backgroundColor: '#9f65ff' }}
+                  handleStyle={{ borderColor: '#04D361', borderWidth: 4 }}
+                />
               ): (
                 <div className={styles.slider}>
                   <div className={styles.emptySlider}></div>
