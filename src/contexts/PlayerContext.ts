@@ -14,6 +14,7 @@ interface PlayerContextData {
   isPlaying: boolean
   togglePlay: () => void
   play: (episode: Episode) => void
+  commandPlay: (isPlaying: boolean) => void
 }
 
 export const PlayerContext = createContext({} as PlayerContextData)
